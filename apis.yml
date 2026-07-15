@@ -41,6 +41,8 @@ apis:
       - type: SourceCode
         url: https://github.com/usnationalarchives/Catalog-API
 common:
+  - type: AgenticAccess
+    url: agentic-access/national-archives-and-records-administration-agentic-access.yml
   - type: DomainSecurity
     url: security/national-archives-and-records-administration-domain-security.yml
   - type: LinkedIn
