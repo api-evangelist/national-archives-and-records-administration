@@ -1,0 +1,50 @@
+{
+  "provider": "national-archives-and-records-administration",
+  "sources": [
+    "national-archives-and-records-administration-accounts-api-openapi.yml",
+    "national-archives-and-records-administration-announcements-api-openapi.yml",
+    "national-archives-and-records-administration-comments-api-openapi.yml",
+    "national-archives-and-records-administration-contributions-api-openapi.yml",
+    "national-archives-and-records-administration-extracted-text-api-openapi.yml",
+    "national-archives-and-records-administration-justifications-api-openapi.yml",
+    "national-archives-and-records-administration-metadata-api-openapi.yml",
+    "national-archives-and-records-administration-online-availability-api-openapi.yml",
+    "national-archives-and-records-administration-other-extracted-text-api-openapi.yml",
+    "national-archives-and-records-administration-partner-api-openapi.yml",
+    "national-archives-and-records-administration-records-api-openapi.yml",
+    "national-archives-and-records-administration-statistics-api-openapi.yml",
+    "national-archives-and-records-administration-tags-api-openapi.yml",
+    "national-archives-and-records-administration-transcriptions-api-openapi.yml",
+    "national-archives-and-records-administration-users-api-openapi.yml",
+    "national-archives-and-records-administration-utilities-api-openapi.yml"
+  ],
+  "outputs": [
+    "national-archives-and-records-administration-accounts-api-openapi.yml",
+    "national-archives-and-records-administration-announcements-api-openapi.yml",
+    "national-archives-and-records-administration-comments-api-openapi.yml",
+    "national-archives-and-records-administration-contributions-api-openapi.yml",
+    "national-archives-and-records-administration-extracted-text-api-openapi.yml",
+    "national-archives-and-records-administration-justifications-api-openapi.yml",
+    "national-archives-and-records-administration-metadata-api-openapi.yml",
+    "national-archives-and-records-administration-online-availability-api-openapi.yml",
+    "national-archives-and-records-administration-other-extracted-text-api-openapi.yml",
+    "national-archives-and-records-administration-partner-api-openapi.yml",
+    "national-archives-and-records-administration-records-api-openapi.yml",
+    "national-archives-and-records-administration-statistics-api-openapi.yml",
+    "national-archives-and-records-administration-tags-api-openapi.yml",
+    "national-archives-and-records-administration-transcriptions-api-openapi.yml",
+    "national-archives-and-records-administration-users-api-openapi.yml",
+    "national-archives-and-records-administration-utilities-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [
+    "national-archives-and-records-administration-accounts-api-openapi.yml: dangling $ref: #/components/schemas/User",
+    "national-archives-and-records-administration-announcements-api-openapi.yml: dangling $ref: #/components/schemas/Announcement",
+    "national-archives-and-records-administration-contributions-api-openapi.yml: dangling $ref: #/components/schemas/contributionBody",
+    "national-archives-and-records-administration-statistics-api-openapi.yml: dangling $ref: #/components/schemas/ContributionRecord",
+    "national-archives-and-records-administration-statistics-api-openapi.yml: dangling $ref: #/components/schemas/MetaData"
+  ],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
