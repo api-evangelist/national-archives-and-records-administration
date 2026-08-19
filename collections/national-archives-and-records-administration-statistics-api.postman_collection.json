@@ -1,0 +1,134 @@
+{
+  "item": [
+    {
+      "id": "5ae6cfd0-f34e-4fc3-9191-524b29f24389",
+      "name": "Statistics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "04c44976-2e3e-49eb-8e30-f894f7a1c32a",
+          "name": "Retrieve statistics related to user contributions.",
+          "request": {
+            "name": "Retrieve statistics related to user contributions.",
+            "description": {
+              "content": "Fetches aggregated statistics for different contribution types (e.g., comments, tags, transcriptions) across various record types (e.g., authorityRecords, digitalObjects, descriptions). The results include a breakdown by contribution type and grand totals.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "records",
+                "stats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "268ece96-3591-4093-b40d-e69658e03978",
+              "name": "Successfully retrieved contribution statistics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "records",
+                    "stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"digitalObjects\": {\n    \"value\": \"reference #/components/schemas/ContributionRecord not found in the OpenAPI spec\"\n  },\n  \"descriptions\": {\n    \"value\": \"reference #/components/schemas/ContributionRecord not found in the OpenAPI spec\"\n  },\n  \"authorityRecords\": {\n    \"value\": \"reference #/components/schemas/ContributionRecord not found in the OpenAPI spec\"\n  },\n  \"metaData\": {\n    \"value\": \"reference #/components/schemas/MetaData not found in the OpenAPI spec\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "12286d1b-96f3-4151-928d-a921b043d697",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "records",
+                    "stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://catalog.archives.gov/api/v2/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "05d1eefa-e13a-4dc2-ae7b-700e699f0001",
+    "name": "NextGen Catalog Accounts Statistics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nThis is the NextGen Catalog API application made with Express and documented with Swagger.\n\nThis API requires the use of an API key in order to access. Once you have obtained an API key, you can pass the API key into a REST API call in the x-api-key header of the request. For example, the request might look like\n\n    curl --location --request GET 'https://catalog.archives.gov/api/v2/records/search?q=constitution'\n    --header 'Content-Type: application/json'\n    --header 'x-api-key: API_KEY'\n\nwhere API_KEY is the key string of your API key.\n\nFor write operations, in addition to the API key, a user ID in the format of a Universally Unique Identifier (UUID) is required in the body of the request. For example, a request to POST a tag might look like:\n\n    curl --location --request POST 'https://catalog.archives.gov/api/v2/tags'\n    --header 'Content-Type: application/json'\n    --data-raw '{\n    \"tag\": \"example tag\",\n    \"targetNaId\": 1667751,\n    \"userId\": \"USER_UUID\"\n    }'\nwhere USER_UUID is the UUID of the user.\n\nPlease contact O&M at Catalog_API@nara.gov for an API Key.",
+      "type": "text/plain"
+    }
+  }
+}

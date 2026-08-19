@@ -1,0 +1,1611 @@
+{
+  "item": [
+    {
+      "id": "27c7b05b-7665-489c-bc27-81929d30ddcf",
+      "name": "Contributions",
+      "description": {
+        "content": "Contribution search and data retrieval; Contributions include Tags, Transcriptions, and Comments - search/retrieve contributions when you want to return any contribution type.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c529b5a1-3557-470c-8abe-55215065a3a5",
+          "name": "Update a contribution.",
+          "request": {
+            "name": "Update a contribution.",
+            "description": {
+              "content": "Update a contribution to a record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contributions",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "review",
+                  "value": "<boolean>",
+                  "description": "review flag which when true indicates that a contribution should be reviewed"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4c2801b1-9e2e-4e1c-9b78-e971055f2b54",
+              "name": "A response body containing confirmation that the transcription was added successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "review",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c72df91d-7489-4a71-84ee-fa06e81bf7fb",
+              "name": "Bad Request. Invalid search terms, revise terms.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "review",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cca096b6-a909-49af-85f3-c42c54c6b061",
+              "name": "An error response while processing the request to add a transcription.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "review",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26563a59-96af-4f76-bfb0-2231d16a28b1",
+          "name": "Get contribution data directly from the database.",
+          "request": {
+            "name": "Get contribution data directly from the database.",
+            "description": {
+              "content": "Get contribution data directly from the database. Returns a JSON result.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contributions",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<string>",
+                  "description": "Contributor's unique identifier which maps to the record.contributor.userId field"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Contribution's status which maps to the status field in the MySQL database"
+                },
+                {
+                  "disabled": false,
+                  "key": "contributionType",
+                  "value": "<string>",
+                  "description": "Contribution type which maps to the contributionType field in the MySQL database"
+                },
+                {
+                  "disabled": false,
+                  "key": "targetNaId",
+                  "value": "<string>",
+                  "description": "Contribution's target record's unique identifier which maps to the targetNaId field in the MySQL database"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt",
+                  "value": "<string>",
+                  "description": "Contribution's date of creation by which to filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt",
+                  "value": "<string>",
+                  "description": "Contribution's date of modification by which to filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort order:\n * `contribution.asc` - Sort by contribution, ascending from A to Z\n * `contribution.desc` - Sort by contribution, descending from Z to A\n * `createdAt.asc` - Sort by created date, ascending\n * `createdAt.desc` - Sort by created date, descending\n * `updatedAt.asc` - Sort by updated date, ascending\n * `updatedAt.desc` - Sort by updated date, descending\n * `count.asc` - Sort by aggregated tag counts, ascending, ONLY works when contributionType = tag is present\n * `count.desc` - Sort by aggregated tag counts, descending, ONLY works when contributionType = tag is present\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeTotalCount",
+                  "value": "<boolean>",
+                  "description": "Returns the total count of results in each result."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0836a4b2-1df1-4268-95a3-ef1bee412afa",
+              "name": "A body of response data containing contribution data from the database if any were found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "55555555-5555-5555-5555-555555555555"
+                    },
+                    {
+                      "key": "status",
+                      "value": "active"
+                    },
+                    {
+                      "key": "contributionType",
+                      "value": "tag"
+                    },
+                    {
+                      "key": "targetNaId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "2020-01-01 07:00:00"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "2020-01-02 07:00:00"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeTotalCount",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f2b753e1-7b4d-47b1-8d46-276a3d362f99",
+              "name": "Unprocessable Entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "55555555-5555-5555-5555-555555555555"
+                    },
+                    {
+                      "key": "status",
+                      "value": "active"
+                    },
+                    {
+                      "key": "contributionType",
+                      "value": "tag"
+                    },
+                    {
+                      "key": "targetNaId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "2020-01-01 07:00:00"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "2020-01-02 07:00:00"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeTotalCount",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2cb2c4c9-7ec8-4569-9cd3-6e49d87c9c59",
+          "name": "Get search results for contributions data by sending a request with search parameters to the catalog.",
+          "request": {
+            "name": "Get search results for contributions data by sending a request with search parameters to the catalog.",
+            "description": {
+              "content": "Get search results for contributions data by sending a request with search parameters to the catalog. Returns a JSON result.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contributions",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "A search query string which accepts boolean operators (AND, OR, NOT), wildcards (*), and exact phrases (\"\")."
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "An individual contribution's unique identifier which maps to the record.contributionId field"
+                },
+                {
+                  "disabled": false,
+                  "key": "userName",
+                  "value": "<string>",
+                  "description": "Contributor's screen name which maps to the record.contributor.userName field"
+                },
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<string>",
+                  "description": "Contributor's unique identifier which maps to the record.contributor.userId field"
+                },
+                {
+                  "disabled": false,
+                  "key": "naId",
+                  "value": "<string>",
+                  "description": "An array of NARA-specific identifiers, each of which is unique to a single record."
+                },
+                {
+                  "disabled": false,
+                  "key": "debug",
+                  "value": "<boolean>",
+                  "description": "Turns on debug mode, showing metadata in the response body, if set to true."
+                },
+                {
+                  "disabled": false,
+                  "key": "searchAfter",
+                  "value": "<string>",
+                  "description": "Enables deep pagination to retrieve records beyond the first 10,000 results.  Not compatible with sort, or page parameters.\n\nFor the inital request use `searchAfter=*` and for all subsequent requests set `searchAfter` to the value of the sort array in the last member of `body.hits.hits` for each page.\n"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "43cbb7fb-412f-4955-a8bb-b85bdc9c9b9a",
+              "name": "A body of response data containing full contribution objects if any were found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "we the people"
+                    },
+                    {
+                      "key": "id",
+                      "value": "55555555-5555-5555-5555-555555555555"
+                    },
+                    {
+                      "key": "userName",
+                      "value": "johndoe1"
+                    },
+                    {
+                      "key": "userId",
+                      "value": "55555555-5555-5555-5555-555555555555"
+                    },
+                    {
+                      "key": "naId",
+                      "value": "146919092, 146919093"
+                    },
+                    {
+                      "key": "debug",
+                      "value": "true"
+                    },
+                    {
+                      "key": "searchAfter",
+                      "value": "55555555-5555-5555-5555-555555555555"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0b865088-6020-439c-a383-639719878c0d",
+              "name": "Unprocessable Entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "we the people"
+                    },
+                    {
+                      "key": "id",
+                      "value": "55555555-5555-5555-5555-555555555555"
+                    },
+                    {
+                      "key": "userName",
+                      "value": "johndoe1"
+                    },
+                    {
+                      "key": "userId",
+                      "value": "55555555-5555-5555-5555-555555555555"
+                    },
+                    {
+                      "key": "naId",
+                      "value": "146919092, 146919093"
+                    },
+                    {
+                      "key": "debug",
+                      "value": "true"
+                    },
+                    {
+                      "key": "searchAfter",
+                      "value": "55555555-5555-5555-5555-555555555555"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72303e05-7c41-4837-a54b-15256c67af64",
+          "name": "Get contribution data by target object id directly from the database.",
+          "request": {
+            "name": "Get contribution data by target object id directly from the database.",
+            "description": {
+              "content": "Get contribution data by target object id directly from the database. Returns a JSON result.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contributions",
+                "targetObjectId",
+                ":targetObjectId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Contribution's status which maps to the status field in the MySQL database"
+                },
+                {
+                  "disabled": false,
+                  "key": "contributionType",
+                  "value": "<string>",
+                  "description": "Contribution type which maps to the contributionType field in the MySQL database"
+                },
+                {
+                  "disabled": false,
+                  "key": "targetPageNum",
+                  "value": "<integer>",
+                  "description": "Contribution's target page number which maps to the targetPageNum field in the MySQL database"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "targetObjectId",
+                  "description": "(Required) Contribution's target objects's unique identifier which maps to the targetObjectId field in the MySQL database"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb55be0c-7799-4624-971f-a8c19abdf1b3",
+              "name": "A body of response data containing contribution data from the database if any were found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    "targetObjectId",
+                    ":targetObjectId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "active"
+                    },
+                    {
+                      "key": "contributionType",
+                      "value": "tag"
+                    },
+                    {
+                      "key": "targetPageNum",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "targetObjectId",
+                      "description": "(Required) Contribution's target objects's unique identifier which maps to the targetObjectId field in the MySQL database"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fb3220d5-6501-434f-8a8b-2072d1850259",
+              "name": "Unprocessable Entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    "targetObjectId",
+                    ":targetObjectId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "active"
+                    },
+                    {
+                      "key": "contributionType",
+                      "value": "tag"
+                    },
+                    {
+                      "key": "targetPageNum",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "targetObjectId",
+                      "description": "(Required) Contribution's target objects's unique identifier which maps to the targetObjectId field in the MySQL database"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00eb7a23-0082-409f-8689-5b255e741417",
+          "name": "Get contribution data by parent contribution id directly from the database.",
+          "request": {
+            "name": "Get contribution data by parent contribution id directly from the database.",
+            "description": {
+              "content": "Get contribution data by parent contribution id directly from the database. Returns a JSON result.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contributions",
+                "parentContributionId",
+                ":parentContributionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Contribution's status which maps to the status field in the MySQL database"
+                },
+                {
+                  "disabled": false,
+                  "key": "contributionType",
+                  "value": "<string>",
+                  "description": "Contribution type which maps to the contributionType field in the MySQL database"
+                },
+                {
+                  "disabled": false,
+                  "key": "targetNaId",
+                  "value": "<string>",
+                  "description": "Contribution's target record's unique identifier which maps to the targetNaId field in the MySQL database"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt",
+                  "value": "<string>",
+                  "description": "Contribution's date of creation by which to filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt",
+                  "value": "<string>",
+                  "description": "Contribution's date of modification by which to filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort order:\n * `contribution.asc` - Sort by contribution, ascending from A to Z\n * `contribution.desc` - Sort by contribution, descending from Z to A\n * `createdAt.asc` - Sort by created date, ascending\n * `createdAt.desc` - Sort by created date, descending\n * `updatedAt.asc` - Sort by updated date, ascending\n * `updatedAt.desc` - Sort by updated date, descending\n * `count.asc` - Sort by aggregated tag counts, ascending, ONLY works when contributionType = tag is present\n * `count.desc` - Sort by aggregated tag counts, descending, ONLY works when contributionType = tag is present\n"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parentContributionId",
+                  "description": "(Required) A contribution's parent contribution's unique uuid identifier, which maps to the parentContributorId field in the MySQL database"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9f467bdd-d82f-44ea-9534-779149fdd1c6",
+              "name": "A body of response data containing contribution data from the database if any were found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    "parentContributionId",
+                    ":parentContributionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "active"
+                    },
+                    {
+                      "key": "contributionType",
+                      "value": "tag"
+                    },
+                    {
+                      "key": "targetNaId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "2020-01-01 07:00:00"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "2020-01-02 07:00:00"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parentContributionId",
+                      "description": "(Required) A contribution's parent contribution's unique uuid identifier, which maps to the parentContributorId field in the MySQL database"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b65d1b29-8818-41cc-a3e4-6e805b102cb9",
+              "name": "Unprocessable Entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    "parentContributionId",
+                    ":parentContributionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "active"
+                    },
+                    {
+                      "key": "contributionType",
+                      "value": "tag"
+                    },
+                    {
+                      "key": "targetNaId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "2020-01-01 07:00:00"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "2020-01-02 07:00:00"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parentContributionId",
+                      "description": "(Required) A contribution's parent contribution's unique uuid identifier, which maps to the parentContributorId field in the MySQL database"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb913abb-c368-4da2-bcd0-e1ab7b8ae29f",
+          "name": "Get contribution data by contribution id directly from the database.",
+          "request": {
+            "name": "Get contribution data by contribution id directly from the database.",
+            "description": {
+              "content": "Get contribution data by contribution id directly from the database. Returns a JSON result.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contributions",
+                "contributionId",
+                ":contributionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Contribution's status which maps to the status field in the MySQL database"
+                },
+                {
+                  "disabled": false,
+                  "key": "contributionType",
+                  "value": "<string>",
+                  "description": "Contribution type which maps to the contributionType field in the MySQL database"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contributionId",
+                  "description": "(Required) An individual contribution's unique uuid identifier which maps to the contributorId field in the MySQL database"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b56a78d-486f-4ccf-9c94-6522e2f31db3",
+              "name": "A body of response data containing contribution data from the database if any were found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    "contributionId",
+                    ":contributionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "active"
+                    },
+                    {
+                      "key": "contributionType",
+                      "value": "tag"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contributionId",
+                      "description": "(Required) An individual contribution's unique uuid identifier which maps to the contributorId field in the MySQL database"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f187a24b-528d-40ef-8336-4b8622f8c6c6",
+              "name": "Unprocessable Entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    "contributionId",
+                    ":contributionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "active"
+                    },
+                    {
+                      "key": "contributionType",
+                      "value": "tag"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contributionId",
+                      "description": "(Required) An individual contribution's unique uuid identifier which maps to the contributorId field in the MySQL database"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6aa3000-65c5-43d9-87d3-486d0d0c64c1",
+          "name": "Get contribution data by user id directly from the database.",
+          "request": {
+            "name": "Get contribution data by user id directly from the database.",
+            "description": {
+              "content": "Get contribution data by user id directly from the database. Returns a JSON result.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contributions",
+                "userId",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<string>",
+                  "description": "(Required) Contributor's unique identifier which maps to the userId field in the MySQL database"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Contribution's status which maps to the status field in the MySQL database"
+                },
+                {
+                  "disabled": false,
+                  "key": "contributionType",
+                  "value": "<string>",
+                  "description": "Contribution type which maps to the contributionType field in the MySQL database"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt",
+                  "value": "<string>",
+                  "description": "Compares provided timestamp to records updated timestamp, which maps to the updatedAt field in the MySQL database"
+                },
+                {
+                  "disabled": false,
+                  "key": "targetNaId",
+                  "value": "<string>",
+                  "description": "Contribution's target record's unique identifier which maps to the targetNaId field in the MySQL database"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt",
+                  "value": "<string>",
+                  "description": "Contribution's date of creation by which to filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt",
+                  "value": "<string>",
+                  "description": "Contribution's date of modification by which to filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort order:\n * `contribution.asc` - Sort by contribution, ascending from A to Z\n * `contribution.desc` - Sort by contribution, descending from Z to A\n * `createdAt.asc` - Sort by created date, ascending\n * `createdAt.desc` - Sort by created date, descending\n * `updatedAt.asc` - Sort by updated date, ascending\n * `updatedAt.desc` - Sort by updated date, descending\n * `count.asc` - Sort by aggregated tag counts, ascending, ONLY works when contributionType = tag is present\n * `count.desc` - Sort by aggregated tag counts, descending, ONLY works when contributionType = tag is present\n"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95e41695-f8b7-47c1-9cfd-deaa13d742fd",
+              "name": "A body of response data containing contribution data from the database if any were found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    "userId",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "55555555-5555-5555-5555-555555555555"
+                    },
+                    {
+                      "key": "status",
+                      "value": "active"
+                    },
+                    {
+                      "key": "contributionType",
+                      "value": "tag"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "tag"
+                    },
+                    {
+                      "key": "targetNaId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "2020-01-01 07:00:00"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "2020-01-02 07:00:00"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "799e1a37-6549-44bb-850c-1abf8c22dd12",
+              "name": "Unprocessable Entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    "userId",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "55555555-5555-5555-5555-555555555555"
+                    },
+                    {
+                      "key": "status",
+                      "value": "active"
+                    },
+                    {
+                      "key": "contributionType",
+                      "value": "tag"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "tag"
+                    },
+                    {
+                      "key": "targetNaId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "2020-01-01 07:00:00"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "2020-01-02 07:00:00"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73f8f349-da3a-4a5c-b5e4-b8b6af921166",
+          "name": "Get contribution data by target naId directly from the database.",
+          "request": {
+            "name": "Get contribution data by target naId directly from the database.",
+            "description": {
+              "content": "Get contribution data by target naId directly from the database. Returns a JSON result.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contributions",
+                "targetNaId",
+                ":targetNaId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Contribution's status which maps to the status field in the MySQL database"
+                },
+                {
+                  "disabled": false,
+                  "key": "contributionType",
+                  "value": "<string>",
+                  "description": "Contribution type which maps to the contributionType field in the MySQL database"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt",
+                  "value": "<string>",
+                  "description": "Contribution's date of creation by which to filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt",
+                  "value": "<string>",
+                  "description": "Contribution's date of modification by which to filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort order:\n * `contribution.asc` - Sort by contribution, ascending from A to Z\n * `contribution.desc` - Sort by contribution, descending from Z to A\n * `createdAt.asc` - Sort by created date, ascending\n * `createdAt.desc` - Sort by created date, descending\n * `updatedAt.asc` - Sort by updated date, ascending\n * `updatedAt.desc` - Sort by updated date, descending\n * `count.asc` - Sort by aggregated tag counts, ascending, ONLY works when contributionType = tag is present\n * `count.desc` - Sort by aggregated tag counts, descending, ONLY works when contributionType = tag is present\n"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "targetNaId",
+                  "description": "(Required) Contribution's target record's unique identifier which maps to the targetNaId field in the MySQL database"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "881ab586-ecfb-4ae0-adcf-afd2c397e3aa",
+              "name": "A body of response data containing contribution data from the database if any were found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    "targetNaId",
+                    ":targetNaId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "active"
+                    },
+                    {
+                      "key": "contributionType",
+                      "value": "tag"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "2020-01-01 07:00:00"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "2020-01-02 07:00:00"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "targetNaId",
+                      "description": "(Required) Contribution's target record's unique identifier which maps to the targetNaId field in the MySQL database"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f6fd9020-db47-4e8e-8d18-b1516d687025",
+              "name": "Unprocessable Entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    "targetNaId",
+                    ":targetNaId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "active"
+                    },
+                    {
+                      "key": "contributionType",
+                      "value": "tag"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "2020-01-01 07:00:00"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "2020-01-02 07:00:00"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "targetNaId",
+                      "description": "(Required) Contribution's target record's unique identifier which maps to the targetNaId field in the MySQL database"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2edcaaf-7b15-40c7-9672-4f44f4e760cc",
+          "name": "Deactivate/remove a contribution.",
+          "request": {
+            "name": "Deactivate/remove a contribution.",
+            "description": {
+              "content": "Change the status of a contribution to 'inactive'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contributions",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13eb631b-5cd4-4352-a36e-2be5c252699d",
+              "name": "A response body containing confirmation that the contribution was deactivated/removed successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "524e408a-b8f4-4e64-975f-45431fd1c484",
+              "name": "An error response while processing the request to deactivate/remove the contribution.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contributions",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://catalog.archives.gov/api/v2/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "16c45b9b-f356-482c-89fb-019d2a41fa63",
+    "name": "NextGen Catalog Accounts Contributions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nThis is the NextGen Catalog API application made with Express and documented with Swagger.\n\nThis API requires the use of an API key in order to access. Once you have obtained an API key, you can pass the API key into a REST API call in the x-api-key header of the request. For example, the request might look like\n\n    curl --location --request GET 'https://catalog.archives.gov/api/v2/records/search?q=constitution'\n    --header 'Content-Type: application/json'\n    --header 'x-api-key: API_KEY'\n\nwhere API_KEY is the key string of your API key.\n\nFor write operations, in addition to the API key, a user ID in the format of a Universally Unique Identifier (UUID) is required in the body of the request. For example, a request to POST a tag might look like:\n\n    curl --location --request POST 'https://catalog.archives.gov/api/v2/tags'\n    --header 'Content-Type: application/json'\n    --data-raw '{\n    \"tag\": \"example tag\",\n    \"targetNaId\": 1667751,\n    \"userId\": \"USER_UUID\"\n    }'\nwhere USER_UUID is the UUID of the user.\n\nPlease contact O&M at Catalog_API@nara.gov for an API Key.",
+      "type": "text/plain"
+    }
+  }
+}
