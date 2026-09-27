@@ -45,6 +45,25 @@ paths:
       x-operation-id-source: derived
 components:
   parameters:
+    paramLimit:
+      in: query
+      name: limit
+      description: Maximum number of results returned for each page of paginated data.
+      required: false
+      schema:
+        default: 20
+        maximum: 1000
+        type: integer
+      example: 75
+    paramPathNaId:
+      in: path
+      name: naId
+      description: Unique, NARA-specific identifier given to each record.
+      required: false
+      schema:
+        maximum: 30
+        type: integer
+      example: 146919092
     paramPage:
       in: query
       name: page
@@ -64,22 +83,3 @@ components:
         maximum: 30
         type: integer
       example: 152951242
-    paramPathNaId:
-      in: path
-      name: naId
-      description: Unique, NARA-specific identifier given to each record.
-      required: false
-      schema:
-        maximum: 30
-        type: integer
-      example: 146919092
-    paramLimit:
-      in: query
-      name: limit
-      description: Maximum number of results returned for each page of paginated data.
-      required: false
-      schema:
-        default: 20
-        maximum: 1000
-        type: integer
-      example: 75

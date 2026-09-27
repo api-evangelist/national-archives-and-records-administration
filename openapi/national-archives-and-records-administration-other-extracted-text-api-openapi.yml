@@ -36,33 +36,24 @@ paths:
       x-operation-id-source: derived
 components:
   parameters:
-    paramUserName:
+    paramUserId:
       in: query
-      name: userName
-      description: Contributor's screen name which maps to the record.contributor.userName field
-      required: false
-      schema:
-        maximum: 100
-        type: string
-      example: johndoe1
-    paramUpdatedAtFilter:
-      in: query
-      name: updatedAt
-      description: Contribution's date of modification by which to filter
-      required: false
-      schema:
-        maximum: 30
-        type: string
-      example: '2020-01-02 07:00:00'
-    paramContId:
-      in: query
-      name: id
-      description: An individual contribution's unique identifier which maps to the record.contributionId field
+      name: userId
+      description: Contributor's unique identifier which maps to the record.contributor.userId field
       required: false
       schema:
         maximum: 50
         type: string
       example: 55555555-5555-5555-5555-555555555555
+    paramIncludeTotalCount:
+      in: query
+      name: includeTotalCount
+      description: Returns the total count of results in each result.
+      required: false
+      schema:
+        maximum: 100
+        type: boolean
+      example: true
     paramCreatedAtFilter:
       in: query
       name: createdAt
@@ -103,6 +94,33 @@ components:
           value: we the people
           summary: Simple keyword
           description: Returns results which contain one or more contributions with the words we, the, and people.
+    paramUpdatedAtFilter:
+      in: query
+      name: updatedAt
+      description: Contribution's date of modification by which to filter
+      required: false
+      schema:
+        maximum: 30
+        type: string
+      example: '2020-01-02 07:00:00'
+    paramUserName:
+      in: query
+      name: userName
+      description: Contributor's screen name which maps to the record.contributor.userName field
+      required: false
+      schema:
+        maximum: 100
+        type: string
+      example: johndoe1
+    paramContId:
+      in: query
+      name: id
+      description: An individual contribution's unique identifier which maps to the record.contributionId field
+      required: false
+      schema:
+        maximum: 50
+        type: string
+      example: 55555555-5555-5555-5555-555555555555
     paramSortBy:
       in: query
       name: sortBy
@@ -118,21 +136,3 @@ components:
         - updatedAt.asc
         - updatedAt.desc
       description: "Sort order:\n * `contribution.asc` - Sort by contribution, ascending from A to Z\n * `contribution.desc` - Sort by contribution, descending from Z to A\n * `createdAt.asc` - Sort by created date, ascending\n * `createdAt.desc` - Sort by created date, descending\n * `updatedAt.asc` - Sort by updated date, ascending\n * `updatedAt.desc` - Sort by updated date, descending\n * `count.asc` - Sort by aggregated tag counts, ascending, ONLY works when contributionType = tag is present\n * `count.desc` - Sort by aggregated tag counts, descending, ONLY works when contributionType = tag is present\n"
-    paramUserId:
-      in: query
-      name: userId
-      description: Contributor's unique identifier which maps to the record.contributor.userId field
-      required: false
-      schema:
-        maximum: 50
-        type: string
-      example: 55555555-5555-5555-5555-555555555555
-    paramIncludeTotalCount:
-      in: query
-      name: includeTotalCount
-      description: Returns the total count of results in each result.
-      required: false
-      schema:
-        maximum: 100
-        type: boolean
-      example: true

@@ -81,25 +81,6 @@ paths:
       operationId: deleteOnlineAvailabilityDelete
       x-operation-id-source: derived
 components:
-  schemas:
-    onlineAvailabilityBody:
-      type: object
-      properties:
-        naId:
-          type: string
-          example: 123456
-          maximum: 30
-        status:
-          type: string
-          example: active
-        availability:
-          type: string
-          example: fullyDigitized
-          accepted:
-          - fullyDigitized
-          - unrestrictedOnly
-      required:
-      - naId
   parameters:
     paramLimit:
       in: query
@@ -111,6 +92,15 @@ components:
         maximum: 1000
         type: integer
       example: 75
+    paramPathNaId:
+      in: path
+      name: naId
+      description: Unique, NARA-specific identifier given to each record.
+      required: false
+      schema:
+        maximum: 30
+        type: integer
+      example: 146919092
     paramPage:
       in: query
       name: page
@@ -130,26 +120,6 @@ components:
         maximum: 10000
         type: string
       example: 146919092, 146919093
-    paramPathNaId:
-      in: path
-      name: naId
-      description: Unique, NARA-specific identifier given to each record.
-      required: false
-      schema:
-        maximum: 30
-        type: integer
-      example: 146919092
-    paramAvailability:
-      in: query
-      name: availability
-      description: An array of online availability values
-      required: false
-      schema:
-        enum:
-        - fullyDigitized
-        - unrestrictedOnly
-        type: string
-      example: fullyDigitized, unrestrictedOnly
     paramAvailabilityStatus:
       in: query
       name: availabilityStatus
@@ -161,3 +131,33 @@ components:
         - inactive
         type: string
       example: active, inactive
+    paramAvailability:
+      in: query
+      name: availability
+      description: An array of online availability values
+      required: false
+      schema:
+        enum:
+        - fullyDigitized
+        - unrestrictedOnly
+        type: string
+      example: fullyDigitized, unrestrictedOnly
+  schemas:
+    onlineAvailabilityBody:
+      type: object
+      properties:
+        naId:
+          type: string
+          example: 123456
+          maximum: 30
+        status:
+          type: string
+          example: active
+        availability:
+          type: string
+          example: fullyDigitized
+          accepted:
+          - fullyDigitized
+          - unrestrictedOnly
+      required:
+      - naId
