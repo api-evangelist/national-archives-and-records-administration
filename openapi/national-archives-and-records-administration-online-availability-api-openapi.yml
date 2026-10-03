@@ -82,16 +82,6 @@ paths:
       x-operation-id-source: derived
 components:
   parameters:
-    paramLimit:
-      in: query
-      name: limit
-      description: Maximum number of results returned for each page of paginated data.
-      required: false
-      schema:
-        default: 20
-        maximum: 1000
-        type: integer
-      example: 75
     paramPathNaId:
       in: path
       name: naId
@@ -142,6 +132,16 @@ components:
         - unrestrictedOnly
         type: string
       example: fullyDigitized, unrestrictedOnly
+    paramLimit:
+      in: query
+      name: limit
+      description: Maximum number of results returned for each page of paginated data.
+      required: false
+      schema:
+        default: 20
+        maximum: 1000
+        type: integer
+      example: 75
   schemas:
     onlineAvailabilityBody:
       type: object
