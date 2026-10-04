@@ -45,6 +45,24 @@ paths:
       x-operation-id-source: derived
 components:
   parameters:
+    paramObjectIdInQuery:
+      in: query
+      name: objectId
+      description: Unique ID given to an object
+      required: true
+      schema:
+        maximum: 30
+        type: integer
+      example: 152951242
+    paramPathNaId:
+      in: path
+      name: naId
+      description: Unique, NARA-specific identifier given to each record.
+      required: false
+      schema:
+        maximum: 30
+        type: integer
+      example: 146919092
     paramPage:
       in: query
       name: page
@@ -65,21 +83,3 @@ components:
         maximum: 1000
         type: integer
       example: 75
-    paramObjectIdInQuery:
-      in: query
-      name: objectId
-      description: Unique ID given to an object
-      required: true
-      schema:
-        maximum: 30
-        type: integer
-      example: 152951242
-    paramPathNaId:
-      in: path
-      name: naId
-      description: Unique, NARA-specific identifier given to each record.
-      required: false
-      schema:
-        maximum: 30
-        type: integer
-      example: 146919092

@@ -222,10 +222,44 @@ components:
           default: active
           example: inactive
   parameters:
+    paramContQuery:
+      in: query
+      name: q
+      description: A search query string which accepts boolean operators (AND, OR, NOT), wildcards (*), and exact phrases ("").
+      required: false
+      schema:
+        maximum: 1024
+        type: string
+      examples:
+        simple:
+          value: we the people
+          summary: Simple keyword
+          description: Returns results which contain one or more contributions with the words we, the, and people. Note that the boolean operator AND is used by default.
+        bool:
+          value: people NOT we
+          summary: Boolean operators
+          description: Returns results which contain one or more contributions with the word people but do not contain the word we.
+        exact:
+          value: United States
+          summary: Exact phrase
+          description: Returns results which contain one or more contributions with the words "United" and "States" together.
+        stemming:
+          value: photo*
+          summary: Stemming with wildcards
+          description: Returns results which contain one or more contributions with variations of the word "photo", such as "photograph" and "photography".
     paramContId:
       in: query
       name: id
       description: An individual contribution's unique identifier which maps to the record.contributionId field
+      required: false
+      schema:
+        maximum: 50
+        type: string
+      example: 55555555-5555-5555-5555-555555555555
+    paramUserId:
+      in: query
+      name: userId
+      description: Contributor's unique identifier which maps to the record.contributor.userId field
       required: false
       schema:
         maximum: 50
@@ -258,37 +292,3 @@ components:
         maximum: 100
         type: boolean
       example: true
-    paramContQuery:
-      in: query
-      name: q
-      description: A search query string which accepts boolean operators (AND, OR, NOT), wildcards (*), and exact phrases ("").
-      required: false
-      schema:
-        maximum: 1024
-        type: string
-      examples:
-        simple:
-          value: we the people
-          summary: Simple keyword
-          description: Returns results which contain one or more contributions with the words we, the, and people. Note that the boolean operator AND is used by default.
-        bool:
-          value: people NOT we
-          summary: Boolean operators
-          description: Returns results which contain one or more contributions with the word people but do not contain the word we.
-        exact:
-          value: United States
-          summary: Exact phrase
-          description: Returns results which contain one or more contributions with the words "United" and "States" together.
-        stemming:
-          value: photo*
-          summary: Stemming with wildcards
-          description: Returns results which contain one or more contributions with variations of the word "photo", such as "photograph" and "photography".
-    paramUserId:
-      in: query
-      name: userId
-      description: Contributor's unique identifier which maps to the record.contributor.userId field
-      required: false
-      schema:
-        maximum: 50
-        type: string
-      example: 55555555-5555-5555-5555-555555555555
